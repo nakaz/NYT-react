@@ -7,7 +7,7 @@ module.exports = {
     path: path.resolve(__dirname, './dist')
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json']
+    extensions: ['.js', '.jsx', '.json']
   },
   module: {
     loaders: [
