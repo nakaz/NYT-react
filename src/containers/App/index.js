@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header'
+import styles from './App.css'
 
 class App extends Component {
   constructor(){
@@ -8,7 +9,7 @@ class App extends Component {
       counter: 0
     }
 
-    this.increment = this.increment.bind(this)
+   this.increment = this.increment.bind(this)
   }
 
   increment() {
@@ -19,9 +20,9 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <h1>Hello sarah!!!!!!</h1>
+        <h1 className={styles.title}>Hello sarah!!!!!!</h1>
         <div>{this.state.counter}</div>
-        <button onClick={this.increment}>Increment</button>
+        <button className={styles.button} onClick={this.increment}>Increment</button>
       </div>
     )
   }
