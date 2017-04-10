@@ -3,12 +3,17 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
+  context: path.resolve(__dirname, 'src'),
   entry: [
-    path.resolve(__dirname, './src/index.js')
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    './index.js'
   ],
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, './dist')
+    path: path.resolve(__dirname, './dist'),
+    publicPath: '/'
   },
   devServer: {
     hot: true,
@@ -30,8 +35,9 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: 'index.html',
       inject: true,
     })
   ]
